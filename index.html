@@ -5,6 +5,10 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
+    <div id="human-model">
+        <!-- Add code for rendering the human model here -->
+    </div>
+
     <h1>Welcome to My 3D Model Page!</h1>
 
     <div id="canvas"></div>
@@ -23,3 +27,15 @@
                 reader.onload = function(event) {
                     var result = event.target.result;
 
+                    var loader = new THREE.GLTFLoader();
+                    loader.parse(result, '', function(gltf) {
+                        var scene = gltf.scene;
+                        // Do further processing with the loaded 3D model
+                    });
+                };
+                reader.readAsArrayBuffer(file);
+            }
+        }
+    </script>
+</body>
+</html>
