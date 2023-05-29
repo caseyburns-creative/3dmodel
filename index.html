@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My 3D Model Page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <h1>Welcome to My 3D Model Page!</h1>
+
+    <div id="canvas"></div>
+
+    <input type="file" id="file-upload" accept=".glb">
+    <button onclick="handleFileUpload()">Upload 3D Model</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script>
+        var fileInput = document.getElementById('file-upload');
+
+        function handleFileUpload() {
+            var file = fileInput.files[0];
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function(event) {
+                    var result = event.target.result;
+
